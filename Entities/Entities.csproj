@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8F1B8272-6919-4090-A7D4-669B953902A0}</ProjectGuid>
+    <ProjectGuid>{900596FA-22CF-4AA3-B1FA-204B71083ECA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Entities</RootNamespace>
@@ -48,22 +48,85 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Absance.cs" />
+    <Compile Include="Base_NoteDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Base_NoteDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DbNoteEntitie.cs" />
+    <Compile Include="Enseignant.cs" />
     <Compile Include="Etudient.cs" />
-    <Compile Include="Migrations\202007061507364_djo.cs" />
-    <Compile Include="Migrations\202007061507364_djo.Designer.cs">
-      <DependentUpon>202007061507364_djo.cs</DependentUpon>
+    <Compile Include="Migrations\202007080239452_jamel.cs" />
+    <Compile Include="Migrations\202007080239452_jamel.Designer.cs">
+      <DependentUpon>202007080239452_jamel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007080301083_jamel1.cs" />
+    <Compile Include="Migrations\202007080301083_jamel1.Designer.cs">
+      <DependentUpon>202007080301083_jamel1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007080357425_jamel2.cs" />
+    <Compile Include="Migrations\202007080357425_jamel2.Designer.cs">
+      <DependentUpon>202007080357425_jamel2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007081305182_djo.cs" />
+    <Compile Include="Migrations\202007081305182_djo.Designer.cs">
+      <DependentUpon>202007081305182_djo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007081840275_djo1.cs" />
+    <Compile Include="Migrations\202007081840275_djo1.Designer.cs">
+      <DependentUpon>202007081840275_djo1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007110658242_Salem.cs" />
+    <Compile Include="Migrations\202007110658242_Salem.Designer.cs">
+      <DependentUpon>202007110658242_Salem.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Module.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Base_NoteDataSet.xsc">
+      <DependentUpon>Base_NoteDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Base_NoteDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Base_NoteDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Base_NoteDataSet.xss">
+      <DependentUpon>Base_NoteDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202007061507364_djo.resx">
-      <DependentUpon>202007061507364_djo.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202007080239452_jamel.resx">
+      <DependentUpon>202007080239452_jamel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007080301083_jamel1.resx">
+      <DependentUpon>202007080301083_jamel1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007080357425_jamel2.resx">
+      <DependentUpon>202007080357425_jamel2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007081305182_djo.resx">
+      <DependentUpon>202007081305182_djo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007081840275_djo1.resx">
+      <DependentUpon>202007081840275_djo1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007110658242_Salem.resx">
+      <DependentUpon>202007110658242_Salem.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

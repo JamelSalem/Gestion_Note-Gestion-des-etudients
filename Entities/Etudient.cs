@@ -16,9 +16,14 @@ namespace Entities
         public string Groupe { get; set; }
         public string tel { get; set; }
         public string Genre { get; set; }
-        public string date_nais { get; set; }
         public string date_insc { get; set; }
-        
+        public string date_PFE { get; set; }
+
+
+        public virtual ICollection<Module> Modules { get; set; }
+        public virtual ICollection<Absance> Absances { get; set; }
+        public virtual ICollection<Enseignant> Enseignants { get; set; }
+
 
 
     }

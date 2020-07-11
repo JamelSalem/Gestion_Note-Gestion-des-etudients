@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E95E6625-8953-4742-B4E6-D53AAF5FD02E}</ProjectGuid>
+    <ProjectGuid>{7BD85014-D414-4794-A17A-79711FAD6F5C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>IHM_Gestion_Note</RootNamespace>
     <AssemblyName>IHM_Gestion_Note</AssemblyName>
@@ -31,9 +31,6 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject>IHM_Gestion_Note.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Entities">
@@ -82,16 +79,7 @@
     <EmbeddedResource Include="form_etud.resx">
       <DependentUpon>form_etud.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -107,28 +95,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\addpic.JPG" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\add s.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\del s.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\set s.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\find s.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\reset.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\close.JPG" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
+    <Content Include="Resources\add s.png" />
+    <Content Include="Resources\addpic.JPG" />
+    <Content Include="Resources\close.JPG" />
+    <Content Include="Resources\del s.png" />
+    <Content Include="Resources\find s.png" />
+    <Content Include="Resources\reset.png" />
+    <Content Include="Resources\set s.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

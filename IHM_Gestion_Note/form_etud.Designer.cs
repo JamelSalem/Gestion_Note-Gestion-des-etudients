@@ -1,4 +1,5 @@
 ﻿namespace IHM_Gestion_Note
+    
 {
     partial class form_etud
     {
