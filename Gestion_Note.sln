@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Servic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{900596FA-22CF-4AA3-B1FA-204B71083ECA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IHM_Gestion_Note", "..\..\..\Desktop\IHM_Gestion_Note\IHM_Gestion_Note.csproj", "{E95E6625-8953-4742-B4E6-D53AAF5FD02E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IHM_Gestion_Note", "IHM_Gestion_Note\IHM_Gestion_Note.csproj", "{E95E6625-8953-4742-B4E6-D53AAF5FD02E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -16,7 +16,7 @@ namespace IHM_Gestion_Note
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new form_etud());
+            Application.Run(new form_Login());
         }
     }
 }

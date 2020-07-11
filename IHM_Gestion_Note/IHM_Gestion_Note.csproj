@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7BD85014-D414-4794-A17A-79711FAD6F5C}</ProjectGuid>
+    <ProjectGuid>{E95E6625-8953-4742-B4E6-D53AAF5FD02E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>IHM_Gestion_Note</RootNamespace>
     <AssemblyName>IHM_Gestion_Note</AssemblyName>
@@ -32,9 +32,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>IHM_Gestion_Note.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Entities">
-      <HintPath>..\Entities\bin\Debug\Entities.dll</HintPath>
+      <HintPath>..\..\source\repos\Gestion_Note\Entities\bin\Debug\Entities.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -51,8 +54,9 @@
     <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
     </Reference>
-    <Reference Include="Services">
-      <HintPath>..\Services\bin\Debug\Services.dll</HintPath>
+    <Reference Include="Services, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\source\repos\Gestion_Note\Services\bin\Debug\Services.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -68,19 +72,139 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base_NoteDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Base_NoteDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Base_NoteDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Base_NoteDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Base_NoteDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Base_NoteDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Base_NoteDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Base_NoteDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="form_absance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form_absance.Designer.cs">
+      <DependentUpon>form_absance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form_enseg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form_enseg.Designer.cs">
+      <DependentUpon>form_enseg.cs</DependentUpon>
+    </Compile>
     <Compile Include="form_etud.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="form_etud.Designer.cs">
       <DependentUpon>form_etud.cs</DependentUpon>
     </Compile>
+    <Compile Include="form_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form_Login.Designer.cs">
+      <DependentUpon>form_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form_Main_Prof.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form_Main_Prof.Designer.cs">
+      <DependentUpon>form_Main_Prof.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form_module.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form_module.Designer.cs">
+      <DependentUpon>form_module.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="form_absance.resx">
+      <DependentUpon>form_absance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form_enseg.resx">
+      <DependentUpon>form_enseg.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="form_etud.resx">
       <DependentUpon>form_etud.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx" />
+    <EmbeddedResource Include="form_Login.resx">
+      <DependentUpon>form_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form_Main_Prof.resx">
+      <DependentUpon>form_Main_Prof.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form_module.resx">
+      <DependentUpon>form_module.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Base_NoteDataSet.xsc">
+      <DependentUpon>Base_NoteDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Base_NoteDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Base_NoteDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Base_NoteDataSet.xss">
+      <DependentUpon>Base_NoteDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Base_NoteDataSet1.xsc">
+      <DependentUpon>Base_NoteDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Base_NoteDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Base_NoteDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Base_NoteDataSet1.xss">
+      <DependentUpon>Base_NoteDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Base_NoteDataSet2.xsc">
+      <DependentUpon>Base_NoteDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="Base_NoteDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Base_NoteDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Base_NoteDataSet2.xss">
+      <DependentUpon>Base_NoteDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="Base_NoteDataSet3.xsc">
+      <DependentUpon>Base_NoteDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="Base_NoteDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Base_NoteDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Base_NoteDataSet3.xss">
+      <DependentUpon>Base_NoteDataSet3.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Entities.Enseignant.datasource" />
+    <None Include="Properties\DataSources\Entities.Module.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -95,13 +219,76 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\add s.png" />
-    <Content Include="Resources\addpic.JPG" />
-    <Content Include="Resources\close.JPG" />
-    <Content Include="Resources\del s.png" />
-    <Content Include="Resources\find s.png" />
-    <Content Include="Resources\reset.png" />
-    <Content Include="Resources\set s.png" />
+    <None Include="Resources\addpic.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\del s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\set s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\find s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reset.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\briefcase_document.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\graduate.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teacher_blackboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\briefcase_document1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\graduate1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\téléchargement.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\téléchargement %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\téléchargement %281%291.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\téléchargement %281%292.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loginstud.JPG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

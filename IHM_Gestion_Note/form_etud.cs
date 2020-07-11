@@ -4,6 +4,8 @@ using System.Data.Entity;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.IO;
+using System.Drawing;
 
 namespace IHM_Gestion_Note
 {
@@ -29,7 +31,7 @@ namespace IHM_Gestion_Note
             if (LE != null)
             {
                 foreach (Etudient E in LE)
-                    DG_Student.Rows.Add(E.num_Etud, E.nom, E.prenom, E.Groupe, E.tel, E.Genre, E.date_nais, E.date_insc);
+                    DG_Student.Rows.Add(E.num_Etud, E.nom, E.prenom, E.Groupe, E.tel, E.Genre, E.date_insc,E.date_PFE);
             }
         }
 
@@ -52,16 +54,26 @@ namespace IHM_Gestion_Note
                     Groupe = group_etud.Text,
                     tel = tel_etud.Text,
                     Genre = genre_etud.Text,
-                    date_nais = dt_nais_etud.Text,
                     date_insc = dt_insc_etud.Text,
+                    date_PFE = dt_Fin_Etud.Text,
+
+
 
                 };
                 Etudient E1 = EtudientADO.Recherche_Code(Id_Etud.Text);
 
                 if (E1 == null)
                 {
+                    if (!Directory.Exists("imgStudent"))
+                        Directory.CreateDirectory("imgStudent");
+                    img_etud.Image.Save("imgStudent/" + Id_Etud.Text + ".jpg");
+
+
+                 
                     EtudientADO.Ajouter(E);
                     Affiche_Etud();
+                    img_etud.Image = new PictureBox().Image;
+
                 }
                 else
                     MessageBox.Show("Cet étudient existe dejà");
@@ -90,9 +102,12 @@ namespace IHM_Gestion_Note
             group_etud.Text = DG_Student[3, ind].Value.ToString();
             tel_etud.Text = DG_Student[4, ind].Value.ToString();
             genre_etud.Text = DG_Student[5, ind].Value.ToString();
-            dt_nais_etud.Text = DG_Student[6, ind].Value.ToString();
-            dt_insc_etud.Text = DG_Student[7, ind].Value.ToString();
+            dt_insc_etud.Text = DG_Student[6, ind].Value.ToString();
+            dt_Fin_Etud.Text = DG_Student[7, ind].Value.ToString();
 
+            string mypath = "imgStudent/" + DG_Student[0, ind].Value.ToString() + ".jpg";
+            if (File.Exists(mypath))
+                img_etud.Image = Image.FromFile(mypath);
 
         }
         // bouton pour supprimer une voiture sélectionnée
@@ -100,6 +115,13 @@ namespace IHM_Gestion_Note
         private void btn_remv_etu_Click(object sender, EventArgs e)
         {
 
+            //int ind = DG_Student.CurrentRow.Index;
+
+            //string mypath = "imgStudent/" + DG_Student[0, ind].Value.ToString() + ".jpg";
+            //if (File.Exists(mypath))
+            //{
+            //    File.Delete(mypath);
+            //}
             EtudientADO.Supprimer(Id_Etud.Text);
             Affiche_Etud();
 
@@ -117,15 +139,22 @@ namespace IHM_Gestion_Note
                 Groupe = group_etud.Text,
                 tel = tel_etud.Text,
                 Genre = genre_etud.Text,
-                date_nais = dt_nais_etud.Text,
                 date_insc = dt_insc_etud.Text,
+                date_PFE = dt_Fin_Etud.Text,
+
 
             };
 
-            EtudientADO.Modifier(E);
-            Affiche_Etud();
-        }
 
+           
+
+
+
+                EtudientADO.Modifier(E);
+            Affiche_Etud();
+                img_etud.Image = new PictureBox().Image;
+            
+        }
         private void btn_del_etud_Click(object sender, EventArgs e)
         {
             Id_Etud.Text = ""; Id_Etud.Focus();
@@ -135,11 +164,12 @@ namespace IHM_Gestion_Note
             group_etud.Text = "";
             tel_etud.Text = "";
             genre_etud.Text = "";
-            dt_nais_etud.Text = "";
-            dt_insc_etud.Text ="";
-            
-            Affiche_Etud();
+            dt_insc_etud.Text = "";
+            dt_Fin_Etud.Text = "";
+            img_etud.Image = new PictureBox().Image;
 
+
+            Affiche_Etud();
         }
         // Bouton Recherche de voiture par Immatriculation ou par Marque
 
@@ -158,12 +188,18 @@ namespace IHM_Gestion_Note
                     group_etud.Text = E.Groupe;
                     tel_etud.Text = E.tel;
                     genre_etud.Text = E.Genre;
-                    dt_nais_etud.Text = E.date_nais;
                     dt_insc_etud.Text = E.date_insc;
+                    dt_Fin_Etud.Text = E.date_PFE;
+                   
+                    int ind = DG_Student.CurrentRow.Index;
+
+                    string mypath = "imgStudent/" + DG_Student[0, ind].Value.ToString() + ".jpg";
+                    if (File.Exists(mypath))
+                        img_etud.Image = Image.FromFile(mypath);
 
                     DG_Student.Rows.Clear();
 
-                    DG_Student.Rows.Add(E.num_Etud, E.nom, E.prenom, E.Groupe, E.tel, E.Genre, E.date_nais, E.date_insc);
+                    DG_Student.Rows.Add(E.num_Etud, E.nom, E.prenom, E.Groupe, E.tel, E.Genre, E.date_insc, E.date_PFE);
 
                 }
                 else
@@ -177,7 +213,7 @@ namespace IHM_Gestion_Note
                     {
                         DG_Student.Rows.Clear();
                     foreach (var E in l)
-                        DG_Student.Rows.Add(E.num_Etud, E.nom, E.prenom, E.Groupe, E.tel, E.Genre, E.date_nais,E.date_insc) ;
+                        DG_Student.Rows.Add(E.num_Etud, E.nom, E.prenom, E.Groupe, E.tel, E.Genre, E.date_insc, E.date_PFE) ;
                     }
                     else
                         MessageBox.Show("Aucune Etudient trouvée");
@@ -185,6 +221,22 @@ namespace IHM_Gestion_Note
 
         }
 
+        private void btn_bro_etud_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.ShowDialog();
+
+        }
+
+        private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            img_etud.Image = Image.FromFile(openFileDialog1.FileName);
+
+        }
+
+        private void btn_clse_etud_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
        
     }
